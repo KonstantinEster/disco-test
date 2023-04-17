@@ -19,7 +19,6 @@ export const artworksReducer = (
           ...state.singleArtworkData,
           [action.payload.id]: action.payload,
         },
-        loading: false,
       };
 
     case ARTWORK_ACTIONS.LOADING:

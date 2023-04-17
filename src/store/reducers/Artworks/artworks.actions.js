@@ -24,10 +24,6 @@ export const addArtworks = (params) => {
 export const addArtwork = (params) => {
   return async (dispatch) => {
     try {
-      dispatch({
-        type: ARTWORK_ACTIONS.LOADING,
-      });
-
       const data = await getArtwork(params);
       const artwork = await data.json();
       const payload = { ...artwork.data, config: artwork.config };
