@@ -1,0 +1,11 @@
+.artwork-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.artwork-item__preview {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
