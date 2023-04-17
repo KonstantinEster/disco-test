@@ -3,11 +3,11 @@ import { NavLink } from "react-router-dom";
 import { InView } from "react-intersection-observer";
 import { ARTWORKS_LIMIT, ARTWORKS_FIELDS } from "../../constants";
 import { addArtworks } from "../../store/reducers/Artworks/artworks.actions";
-import { ArtworkItem } from "../../components";
+import { ArtworkItem, Loader } from "../../components";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { artworks, config } = useSelector(
+  const { artworks, config, loading } = useSelector(
     (state) => state.artworks,
     shallowEqual
   );
@@ -46,6 +46,7 @@ const Home = () => {
                 inView && getArtworks();
               }}
             />
+            {loading && <Loader />}
           </div>
         </div>
       </div>

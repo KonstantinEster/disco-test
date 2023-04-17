@@ -5,7 +5,7 @@ import { useParams, NavLink } from "react-router-dom";
 import { addArtwork } from "../../store/reducers/Artworks/artworks.actions";
 import { ARTWORK_FIELD } from "../../constants";
 import { getImgUrl, getAspect } from "../../helpers";
-import { Img } from "../../components";
+import { Img, Loader } from "../../components";
 import cn from "classnames";
 
 const Artwork = () => {
@@ -47,7 +47,7 @@ const Artwork = () => {
         <div className="row">
           <div className="col-xl-6 offset-lg-3 col-lg-8 offset-lg-2 col-12">
             <NavLink to={-1}>Back</NavLink>
-            {!!artwork && (
+            {!!artwork ? (
               <div className="artwork__content">
                 <h1>{title}</h1>
                 <div
@@ -71,6 +71,8 @@ const Artwork = () => {
                   }}
                 ></p>
               </div>
+            ) : (
+              <Loader />
             )}
           </div>
         </div>

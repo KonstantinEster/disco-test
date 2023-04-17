@@ -4,6 +4,10 @@ import { ARTWORK_ACTIONS } from "./artworks.constants";
 export const addArtworks = (params) => {
   return async (dispatch) => {
     try {
+      dispatch({
+        type: ARTWORK_ACTIONS.LOADING,
+      });
+
       const data = await getArtworks(params);
       const artworks = await data.json();
 
@@ -20,6 +24,10 @@ export const addArtworks = (params) => {
 export const addArtwork = (params) => {
   return async (dispatch) => {
     try {
+      dispatch({
+        type: ARTWORK_ACTIONS.LOADING,
+      });
+
       const data = await getArtwork(params);
       const artwork = await data.json();
       const payload = { ...artwork.data, config: artwork.config };
